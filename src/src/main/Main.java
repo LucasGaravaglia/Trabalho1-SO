@@ -1,7 +1,57 @@
 package main;
 
+import java.util.Scanner;
+import sjf.*;
+
 public class Main {
-    public static void main(String[] args){
-        System.out.println("Impossível inicializar o programa");
+
+    private void clear() {
+        try {
+            new ProcessBuilder("clear").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+        boolean loop = true;
+        int entrada;
+        String path = "";
+        Sjf sjf = new Sjf();
+
+        while (loop) {
+            System.out.println("[1] Processo não preemptivo");
+            System.out.println("[2] Processo preemptivo");
+            System.out.println("[3] Sair");
+            entrada = ler.nextInt();
+            this.clear();
+            if (entrada == 1) {
+                System.out.println("Digite o nome do arquivo para o algoritmo sjf.");
+                path = ler.nextLine();
+                this.clear();
+                try {
+                    sjf.main(path);
+                } catch (Exception e) {
+                    System.out.println("Erro ao processar o arquivo.");
+                }
+                System.out.println("Aperte enter para continuar.");
+                path = ler.nextLine();
+            } else if (entrada == 2) {
+                // System.out.println("Digite o nome do arquivo para o algoritmo RoundRobin.");
+                // path = ler.nextLine();
+                // this.clear();
+                // try {
+                // sjf.main(path);
+                // } catch (Exception e) {
+                // System.out.println("Erro ao processar o arquivo.");
+                // }
+                // System.out.println("Aperte enter para continuar.");
+                // path = ler.nextLine();
+            }
+
+        }
+
+        ler.close();
     }
 }

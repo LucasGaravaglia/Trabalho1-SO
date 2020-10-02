@@ -8,11 +8,14 @@ public class Pcb{
 
 	public Pcb(){
 		this.Id = 0;
-    	this.EstimatedTime = 0;
-    	this.quantum = 0;
+    this.EstimatedTime = 0;
+    this.quantum = 0;
   	}
 
 
+		public boolean compareTo(Pcb other){
+			return (other.Id == this.Id && other.EstimatedTime == other.EstimatedTime);
+		}
   	public void setId(Integer Id){
     	this.Id = Id;
   	}  

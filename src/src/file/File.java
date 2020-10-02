@@ -2,6 +2,7 @@ package file;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import lista.*;
 import pcb.*;
 java.util.ArrayList
 
@@ -12,8 +13,8 @@ public class File {
      * pré-condição: Nenhum
      * pós-condição: Retorna um ArrayList de pcb
      */
-    public ArrayList<Pcb> loadFile(String filePath) throws Exception {
-        ArrayList<Pcb> pcbList = new ArrayList<Pcb>();
+    public CircularList loadFile(String filePath) throws Exception {
+        CircularList pcbList = new CircularList();
         Pcb pcb = new Pcb();
         FileReader fileReader = new FileReader(filePath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -25,9 +26,9 @@ public class File {
         line = bufferedReader.readLine();
         for(i = 1; i < NumPcb && line != null; i++){
             temp = line.split(";");
-            pcb.Id = Integer.parseInt(temp[0]);
-            pcb.EstimatedTime = Integer.parseInt(temp[1]);
-            pcb.quantum = Quantum;
+            pcb.setId(Integer.parseInt(temp[0]));
+            pcb.setEstimatedTime(Integer.parseInt(temp[1]));
+            pcb.setquantum(Quantum);
             pcbList.add(pcb);
             line = bufferedReader.readLine();
         }

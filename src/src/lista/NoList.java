@@ -5,7 +5,7 @@ package lista;
 import pcb.*;
 
 public class No {
-private No proximo;
+    private No proximo;
     private Pcb data;
 
     public void setId(Pcb data) {

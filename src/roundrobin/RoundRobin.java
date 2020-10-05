@@ -19,6 +19,7 @@ public class RoundRobin {
     ArrayList<Pcb> process;
     File f = new File();
     Pcb pcb;
+    try{
     process = f.loadRRFile(filePath);
     Integer timeProcess = 0;
     int novoTempo = 0;
@@ -27,7 +28,6 @@ public class RoundRobin {
     int size = process.size();
     System.out.println("Processando           Lista de processos");
     while (process.size() > 0) {
-      
       pcb = process.get(0);
       pcb.setEstado("em execução");
       Line = "    Id["+pcb.getId().toString()+"]";
@@ -49,5 +49,8 @@ public class RoundRobin {
     }
     tr = tr/size;
     System.out.println("Tempo médio de resposta: " + tr);
+    }catch(Exception e){
+      System.out.println("Erro ao ler o arquivo.")
+    }
   }
 }

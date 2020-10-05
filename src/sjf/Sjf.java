@@ -32,6 +32,7 @@ public class Sjf {
         Pcb pcb;
         int size=0;
         int tr = 0;
+        try{
         process = f.loadSjfFile(filePath);
         process = this.sort(process);
         int timeProcess = 0;
@@ -53,5 +54,9 @@ public class Sjf {
         }
         tr = tr/size;
         System.out.println("Tempo médio de resposta: " + tr);
+        }catch(Exception e){
+            System.out.println("Erro ao ler o arquivo.");
+        }
+        
     }
 }

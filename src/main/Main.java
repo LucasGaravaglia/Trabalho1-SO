@@ -20,17 +20,19 @@ public class Main {
         System.out.println("[2] Processo preemptivo");
         System.out.println("[3] Sair");
         entrada = ler.nextInt();
+        String pathFile = ler.next();
+        System.out.println(pathFile);
         if (entrada == 1) {
             try {
-                sjf.executar("entrada.txt");
+                sjf.executar(pathFile);
             } catch (Exception e) {
-                System.out.println("Erro ao processar o arquivo.");
+                System.out.println("Erro ao rodas o algoritmo.");
             }
         } else if (entrada == 2) {
             try {
-                rr.executar("entrada.txt");
+                rr.executar(pathFile);
             } catch (Exception e) {
-                System.out.println("Erro ao processar o arquivo.");
+                System.out.println("Erro ao rodas o algoritmo.");
             }
         }
         ler.close();

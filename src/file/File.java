@@ -5,7 +5,6 @@ import java.io.FileReader;
 
 import pcb.*;
 import java.util.ArrayList;
-import queue.Queue;
 
 public class File {
     public ArrayList<Pcb> loadSjfFile(String filePath) throws Exception {

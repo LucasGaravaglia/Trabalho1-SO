@@ -34,7 +34,6 @@ public class Sjf {
         int tr = 0;
         process = f.loadSjfFile(filePath);
         process = this.sort(process);
-        System.out.println(process);
         int timeProcess = 0;
         String Line = "";
         size = process.size();

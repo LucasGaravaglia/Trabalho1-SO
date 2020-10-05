@@ -74,25 +74,26 @@ public class Queue<T> {
         return null;
     }
 
+    public void proximo(T info, int temp) {
+        this.remove();
+        if (temp != 0) {
+            this.add(info);
+        }
+    }
+
     /**
      * Método que imprime a pilha Entrada: Nenhuma Retorno: Nenhum Pré-condição:
      * Nenhuma Pós-condição: A pilha é impressa
      */
-    public void imprimirPilha() {
-        int count = 1;
+    public String imprimirPilha() {
         Celula<T> aux;
         aux = this.celula;
-        System.out.println("╔═════════════════╗");
-        System.out.print("+ Inicio da Pilha +");
-        System.out.println("\n╚═════════════════╝");
+        String s = "";
         while (aux != null) {
-            System.out.print(count + ": " + aux.getInfo() + "\n");
+            s += "->[" + aux.getInfo().toString() + "] ";
             aux = aux.getProx();
-            count++;
         }
-        System.out.println("╔══════════════╗");
-        System.out.print("+ Fim da Pilha +");
-        System.out.println("\n╚══════════════╝\n\n");
+        return s;
     }
 
     /**

@@ -21,6 +21,7 @@ public class File {
             temp = line.split(";");
             pcb.setId(Integer.parseInt(temp[0]));
             pcb.setEstimatedTime(Integer.parseInt(temp[1]));
+            pcb.setEstado("pronto");
             pcbList.add(pcb);
             line = bufferedReader.readLine();
         }
@@ -44,6 +45,7 @@ public class File {
             pcb.setId(Integer.parseInt(temp[0]));
             pcb.setEstimatedTime(Integer.parseInt(temp[1]));
             pcb.setQuantum(Quantum);
+            pcb.setEstado("pronto");
             pcbList.add(pcb);
             line = bufferedReader.readLine();
         }

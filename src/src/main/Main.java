@@ -1,6 +1,8 @@
 package main;
 
 import java.util.Scanner;
+
+import roundrobin.RoundRobin;
 import sjf.*;
 
 public class Main {
@@ -19,6 +21,7 @@ public class Main {
         int entrada;
         String path = "";
         Sjf sjf = new Sjf();
+        RoundRobin rr = new RoundRobin();
 
         while (loop) {
             System.out.println("[1] Processo não preemptivo");
@@ -31,23 +34,25 @@ public class Main {
                 path = ler.nextLine();
                 this.clear();
                 try {
-                    sjf.main(path);
+                    sjf.executar(path);
                 } catch (Exception e) {
                     System.out.println("Erro ao processar o arquivo.");
                 }
                 System.out.println("Aperte enter para continuar.");
                 path = ler.nextLine();
             } else if (entrada == 2) {
-                // System.out.println("Digite o nome do arquivo para o algoritmo RoundRobin.");
-                // path = ler.nextLine();
-                // this.clear();
-                // try {
-                // sjf.main(path);
-                // } catch (Exception e) {
-                // System.out.println("Erro ao processar o arquivo.");
-                // }
-                // System.out.println("Aperte enter para continuar.");
-                // path = ler.nextLine();
+                System.out.println("Digite o nome do arquivo para o algoritmo RoundRobin.");
+                path = ler.nextLine();
+                this.clear();
+                try {
+                    rr.executar(path);
+                } catch (Exception e) {
+                    System.out.println("Erro ao processar o arquivo.");
+                }
+                System.out.println("Aperte enter para continuar.");
+                path = ler.nextLine();
+            } else {
+                loop = false;
             }
 
         }

@@ -5,11 +5,13 @@ public class Pcb implements Comparable<Pcb> {
 	private Integer Id;
 	private Integer EstimatedTime;
 	private Integer quantum;
+	private String estado;
 
 	public Pcb() {
 		this.Id = 0;
 		this.EstimatedTime = 0;
 		this.quantum = 0;
+		this.estado = "";
 	}
 
 	public int compareTo(Pcb other) {
@@ -40,6 +42,19 @@ public class Pcb implements Comparable<Pcb> {
 
 	public Integer getQuantum() {
 		return this.quantum;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getEstado() {
+		return this.estado;
+	}
+
+	public String toString() {
+		return this.Id.toString();
+
 	}
 
 }

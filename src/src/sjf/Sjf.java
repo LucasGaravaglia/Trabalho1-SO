@@ -5,22 +5,23 @@ import pcb.*;
 import java.util.ArrayList;
 
 public class Sjf {
-    private Pcb processar(Pcb processo) {
-        processo.setEstado("finalizado");
-        return processo;
+    private void processar() {
     }
 
     public ArrayList<Pcb> sort(ArrayList<Pcb> other) {
         ArrayList<Pcb> sortArray = new ArrayList<Pcb>();
         Pcb temp;
-        for (int i = 0; i < other.size(); i++) {
-            temp = other.get(i);
-            for (Pcb data : sortArray) {
+        int size = other.size();
+        for (int i = 0; i < size; i++) {
+            temp = other.get(0);
+            for (Pcb data : other) {
                 if (data.getEstimatedTime() < temp.getEstimatedTime()) {
                     temp = data;
                 }
             }
+            other.remove(temp);
             sortArray.add(temp);
+            temp = null;
         }
         return sortArray;
     }
@@ -29,20 +30,29 @@ public class Sjf {
         ArrayList<Pcb> process;
         File f = new File();
         Pcb pcb;
+        int size=0;
+        int tr = 0;
         process = f.loadSjfFile(filePath);
         process = this.sort(process);
+        System.out.println(process);
         int timeProcess = 0;
-        for (int i = 0; i < process.size(); i++) {
-            pcb = process.get(i);
+        String Line = "";
+        size = process.size();
+        System.out.println("Processando           Lista de processos");
+        for (int i = 0; i < size; i++) {
+            pcb = process.get(0);
             pcb.setEstado("em execução");
-            process.set(i, pcb);
+            Line = pcb.toString();
+            process.set(0, pcb);
+            Line +="                   ";
             timeProcess += pcb.getEstimatedTime();
-            for (Pcb temp : process) {
-                System.out.println(temp.toString());
-            }
-            pcb = this.processar(pcb);
-            process.set(i, pcb);
+            tr +=timeProcess;
+                Line+=process;
+            this.processar();
+            process.remove(pcb);
+            System.out.println(Line);
         }
-        System.out.println("Tempo médio de resposta: " + timeProcess);
+        tr = tr/size;
+        System.out.println("Tempo médio de resposta: " + tr);
     }
 }

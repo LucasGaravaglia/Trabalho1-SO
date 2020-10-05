@@ -2,36 +2,55 @@ package file;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import pcb.*;
-java.util.ArrayList
 
+import pcb.*;
+import java.util.ArrayList;
+import queue.Queue;
 
 public class File {
-    /* 
-     * Método que lê um arquivo e retorna um arrayList de pcb
-     * pré-condição: Nenhum
-     * pós-condição: Retorna um ArrayList de pcb
-     */
-    public ArrayList<Pcb> loadFile(String filePath) throws Exception {
-        ArrayList<Pcb> pcbList = new ArrayList<Pcb>();
-        Pcb pcb = new Pcb();
+    public ArrayList<Pcb> loadSjfFile(String filePath) throws Exception {
         FileReader fileReader = new FileReader(filePath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        Integer NumPcb = bufferedReader.readLine();
-        Integer Quantum = bufferedReader.readLine();
-        int i;
+        int NumPcb = Integer.parseInt(bufferedReader.readLine());
         String[] temp;
         String line = "";
+        Pcb pcb;
+        Pcb tempPcb;
+        ArrayList<Pcb> pcbList = new ArrayList<Pcb>();
         line = bufferedReader.readLine();
-        for(i = 1; i < NumPcb && line != null; i++){
+        for (int i = 0; i < NumPcb && line != null; i++) {
             temp = line.split(";");
-            pcb.Id = Integer.parseInt(temp[0]);
-            pcb.EstimatedTime = Integer.parseInt(temp[1]);
-            pcb.quantum = Quantum;
-            pcbList.add(pcb);
+            pcb = new Pcb(Integer.parseInt(temp[0]),Integer.parseInt(temp[1]),0,"pronto");
+            tempPcb = pcb;
+            pcbList.add(tempPcb);
             line = bufferedReader.readLine();
+            pcb = null;
         }
         bufferedReader.close();
+        return pcbList;
+    }
+
+    public ArrayList<Pcb> loadRRFile(String filePath) throws Exception {
+        ArrayList<Pcb> pcbList = new ArrayList<Pcb>();
+        FileReader fileReader = new FileReader(filePath);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        int NumPcb = Integer.parseInt(bufferedReader.readLine());
+        Integer Quantum = Integer.parseInt(bufferedReader.readLine());
+        String[] temp;
+        String line = "";
+        Pcb pcb = new Pcb();
+        Pcb TempPcb;
+        line = bufferedReader.readLine();
+        for (int i = 0; i < NumPcb && line != null; i++) {
+            temp = line.split(";");
+            pcb = new Pcb(Integer.parseInt(temp[0]),Integer.parseInt(temp[1]),Quantum,"pronto");
+            TempPcb = pcb;
+            pcbList.add(TempPcb);
+            line = bufferedReader.readLine();
+            pcb=null;
+        }
+        bufferedReader.close();
+        System.out.println("saiu");
         return pcbList;
     }
 }

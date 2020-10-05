@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 import pcb.*;
-import java.util.*;
+import java.util.ArrayList;
+import queue.Queue;
 
 public class File {
     public ArrayList<Pcb> loadSjfFile(String filePath) throws Exception {
@@ -27,8 +28,8 @@ public class File {
         return pcbList;
     }
 
-    public Queue<Pcb> loadFile(String filePath) throws Exception {
-        Queue<Pcb> pcbList = new LinkedList<Pcb>();
+    public Queue<Pcb> loadRRFile(String filePath) throws Exception {
+        Queue<Pcb> pcbList = new Queue<Pcb>();
         FileReader fileReader = new FileReader(filePath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         int NumPcb = Integer.parseInt(bufferedReader.readLine());

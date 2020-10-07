@@ -1,1 +1,0 @@
-clear && javac file/File.java main/Main.java pcb/Pcb.java roundrobin/RoundRobin.java sjf/Sjf.java && java main.Main 

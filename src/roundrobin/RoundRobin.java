@@ -19,7 +19,7 @@ public class RoundRobin {
   /**
    * Método meramente ilustrativa para simular a chamada do processador.
    */
-  private void processar() {
+  private void performProcessing() {
   }
 
   /**
@@ -27,7 +27,7 @@ public class RoundRobin {
    * processar.Pré-condição: Pcb e arrayList de pcb validos. Pós-condição: Avança
    * na lista ou remove o pcb da lista.
    */
-  private ArrayList<Pcb> proximo(Pcb pcb, ArrayList<Pcb> array) {
+  private ArrayList<Pcb> next(Pcb pcb, ArrayList<Pcb> array) {
     array.remove(0);
     if (pcb.getEstimatedTime() > 0) {
       array.add(pcb);
@@ -41,45 +41,44 @@ public class RoundRobin {
    * Método que simula o algoritmo do RoundRobin. Pré-condição: Arquivo valido.
    * Pós-condição: Nenhuma.
    */
-  public void executar(String filePath) throws Exception {
-
+  public void run(String filePath) throws Exception {
     ArrayList<Pcb> process;
-    File f = new File();
-    Pcb pcb;
+    File file = new File();
     try {
-      BufferedWriter escritor = f.openFile("saidaRr.txt");
-      process = f.loadRRFile(filePath);
-      Integer timeProcess = 0;
-      int novoTempo = 0;
-      int tr = 0;
-      int trocaContexto = 0;
+      Pcb pcb;
+      BufferedWriter writeToFile = file.openFile("saidaRr.txt");
+      process = file.loadRRFile(filePath);
+      Integer processTime = 0;
+      int newEstimatedTime = 0;
+      int averageResponseTime = 0;
+      int contextSwitch = 0;
       int size = process.size();
-      escritor.append("Processando                   Lista de processos");
+      writeToFile.append("Processando                   Lista de processos");
       Line += "\n";
       while (process.size() > 0) {
         pcb = process.get(0);
-        pcb.setEstado("em execução");
+        pcb.setstate("em execução");
         Line += "    Id[" + pcb.getId().toString() + "]";
         Line += "              ";
         Line += process;
-        novoTempo = pcb.getEstimatedTime() - pcb.getQuantum();
-        if (novoTempo < 0) {
-          novoTempo = 0;
+        newEstimatedTime = pcb.getEstimatedTime() - pcb.getQuantum();
+        if (newEstimatedTime < 0) {
+          newEstimatedTime = 0;
         }
-        timeProcess += pcb.getEstimatedTime() - novoTempo;
-        tr += timeProcess;
-        pcb.setEstimatedTime(novoTempo);
-        this.processar();
-        pcb.setEstado("pronto");
-        process = this.proximo(pcb, process);
+        processTime += pcb.getEstimatedTime() - newEstimatedTime;
+        averageResponseTime += processTime;
+        pcb.setEstimatedTime(newEstimatedTime);
+        this.performProcessing();
+        pcb.setstate("pronto");
+        process = this.next(pcb, process);
         Line += "\n";
-        trocaContexto++;
+        contextSwitch++;
       }
-      tr = tr / size;
-      escritor.append(Line);
-      escritor.append("Tempo médio de resposta: " + tr + "\n");
-      escritor.append("Ocorreu " + trocaContexto + " trocas de contexto");
-      escritor.close();
+      averageResponseTime = averageResponseTime / size;
+      writeToFile.append(Line);
+      writeToFile.append("Tempo médio de resposta: " + averageResponseTime + "\n");
+      writeToFile.append("Ocorreu " + contextSwitch + " trocas de contexto");
+      writeToFile.close();
     } catch (Exception e) {
       System.out.println("Erro ao ler o arquivo.");
     }

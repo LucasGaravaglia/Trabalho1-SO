@@ -28,14 +28,14 @@ public class File {
         FileReader fileReader = new FileReader(filePath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         int NumPcb = Integer.parseInt(bufferedReader.readLine());
-        String[] temp;
+        String[] stringVector;
         String line = "";
         Pcb pcb;
         ArrayList<Pcb> pcbList = new ArrayList<Pcb>();
         line = bufferedReader.readLine();
         for (int i = 0; i < NumPcb && line != null; i++) {
-            temp = line.split(";");
-            pcb = new Pcb(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), 0, "pronto");
+            stringVector = line.split(";");
+            pcb = new Pcb(Integer.parseInt(stringVector[0]), Integer.parseInt(stringVector[1]), 0, "pronto");
             pcbList.add(pcb);
             line = bufferedReader.readLine();
             pcb = null;
@@ -56,13 +56,13 @@ public class File {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         int NumPcb = Integer.parseInt(bufferedReader.readLine());
         Integer Quantum = Integer.parseInt(bufferedReader.readLine());
-        String[] temp;
+        String[] stringVector;
         String line = "";
         Pcb pcb = new Pcb();
         line = bufferedReader.readLine();
         for (int i = 0; i < NumPcb && line != null; i++) {
-            temp = line.split(";");
-            pcb = new Pcb(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Quantum, "pronto");
+            stringVector = line.split(";");
+            pcb = new Pcb(Integer.parseInt(stringVector[0]), Integer.parseInt(stringVector[1]), Quantum, "pronto");
             pcbList.add(pcb);
             line = bufferedReader.readLine();
             pcb = null;

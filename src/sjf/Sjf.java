@@ -11,7 +11,7 @@ public class Sjf {
   /**
    * Método meramente ilustrativa para simular a chamada do processador.
    */
-  private void processar() {
+  private void performProcessing() {
   }
 
   /**
@@ -27,18 +27,18 @@ public class Sjf {
    */
   public ArrayList<Pcb> sort(ArrayList<Pcb> other) {
     ArrayList<Pcb> sortArray = new ArrayList<Pcb>();
-    Pcb temp;
+    Pcb TemporaryPcb;
     int size = other.size();
     for (int i = 0; i < size; i++) {
-      temp = other.get(0);
+      TemporaryPcb = other.get(0);
       for (Pcb data : other) {
-        if (data.getEstimatedTime() < temp.getEstimatedTime()) {
-          temp = data;
+        if (data.getEstimatedTime() < TemporaryPcb.getEstimatedTime()) {
+          TemporaryPcb = data;
         }
       }
-      other.remove(temp);
-      sortArray.add(temp);
-      temp = null;
+      other.remove(TemporaryPcb);
+      sortArray.add(TemporaryPcb);
+      TemporaryPcb = null;
     }
     return sortArray;
   }
@@ -47,39 +47,39 @@ public class Sjf {
    * Método que simula o algoritmo Sjf. Pré-condição: Arquivo valido.
    * Pós-condição: Nenhuma.
    */
-  public void executar(String filePath) throws Exception {
+  public void run(String filePath) throws Exception {
     ArrayList<Pcb> process;
-    File f = new File();
-    Pcb pcb;
-    int size = 0;
-    int tr = 0;
-    int trocaContexto = 0;
+    File file = new File();
     try {
-      BufferedWriter escritor = f.openFile("saidaSjf.txt");
-      process = f.loadSjfFile(filePath);
+      Pcb pcb;
+      BufferedWriter writeToFile = file.openFile("saidaSjf.txt");
+      int size = 0;
+      int averageResponseTime = 0;
+      int contextSwitch = 0;
+      process = file.loadSjfFile(filePath);
       process = this.sort(process);
-      int timeProcess = 0;
+      int processTime = 0;
       size = process.size();
-      escritor.append("Processando                      Lista de processos\n");
+      writeToFile.append("Processando                      Lista de processos\n");
       for (int i = 0; i < size; i++) {
-        trocaContexto++;
+        contextSwitch++;
         pcb = process.get(0);
-        pcb.setEstado("em execução");
+        pcb.setstate("em execução");
         Line += "    Id[" + pcb.toString() + "]";
         Line += "                   ";
         process.set(0, pcb);
-        timeProcess += pcb.getEstimatedTime();
-        tr += timeProcess;
+        processTime += pcb.getEstimatedTime();
+        averageResponseTime += processTime;
         Line += process;
         Line += "\n";
-        this.processar();
+        this.performProcessing();
         process.remove(pcb);
       }
-      tr = tr / size;
-      escritor.append(Line);
-      escritor.append("Tempo médio de resposta: " + tr + "\n");
-      escritor.append("Ocorreu " + trocaContexto + " trocas de contexto");
-      escritor.close();
+      averageResponseTime = averageResponseTime / size;
+      writeToFile.append(Line);
+      writeToFile.append("Tempo médio de resposta: " + averageResponseTime + "\n");
+      writeToFile.append("Ocorreu " + contextSwitch + " trocas de contexto");
+      writeToFile.close();
 
     } catch (Exception e) {
       System.out.println("Erro ao ler o arquivo.");

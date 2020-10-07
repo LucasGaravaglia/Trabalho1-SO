@@ -6,9 +6,8 @@ import roundrobin.RoundRobin;
 import sjf.Sjf;
 
 public class Main {
- /**
-   * Método principal, que roda todo o programa. 
-   * Pré-condição: nenhuma. 
+  /**
+   * Método principal, que roda todo o programa. Pré-condição: nenhuma.
    * Pós-condição: Nenhuma.
    */
   public static void main(String[] args) {
@@ -22,14 +21,14 @@ public class Main {
     entrada = ler.nextInt();
     if (entrada == 1) {
       try {
-        sjf.executar("entradaSjf.txt");
+        sjf.run("entradaSjf.txt");
         System.out.println("Algoritmo não preemptivo finalizado.\nA saída dele está no arquivo saidaSjf.txt.\n");
       } catch (Exception e) {
         System.out.println("Erro ao rodas o algoritmo.");
       }
     } else if (entrada == 2) {
       try {
-        rr.executar("entradaRr.txt");
+        rr.run("entradaRr.txt");
         System.out.println("Algoritmo preemptivo finalizado.\nA saída dele está no arquivo saidaRr.txt.\n");
       } catch (Exception e) {
         System.out.println("Erro ao rodas o algoritmo.");

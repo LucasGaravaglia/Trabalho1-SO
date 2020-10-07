@@ -6,7 +6,7 @@ public class Pcb {
     private Integer Id;
     private Integer EstimatedTime;
     private Integer quantum;
-    private String estado;
+    private String state;
 
     /**
      * Construtor da classe Pcb Pré-condição: nenhuma. Pós-condição: Nenhuma.
@@ -15,18 +15,18 @@ public class Pcb {
         this.Id = 0;
         this.EstimatedTime = 0;
         this.quantum = 0;
-        this.estado = "";
+        this.state = "";
     }
 
     /**
      * Construtor da classe sobrecarregado. Pré-condição: nenhuma. Pós-condição:
      * Nenhuma.
      */
-    public Pcb(Integer Id, Integer EstimatedTime, Integer quantum, String estado) {
+    public Pcb(Integer Id, Integer EstimatedTime, Integer quantum, String state) {
         this.Id = Id;
         this.EstimatedTime = EstimatedTime;
         this.quantum = quantum;
-        this.estado = estado;
+        this.state = state;
     }
 
     /**
@@ -78,19 +78,19 @@ public class Pcb {
     }
 
     /**
-     * Setter da propriedade Estado da classe Pré-condição: nenhuma. Pós-condição:
+     * Setter da propriedade state da classe Pré-condição: nenhuma. Pós-condição:
      * Nenhuma.
      */
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setstate(String state) {
+        this.state = state;
     }
 
     /**
-     * Getter da propriedade Estado da classe Pré-condição: nenhuma. Pós-condição:
+     * Getter da propriedade state da classe Pré-condição: nenhuma. Pós-condição:
      * Nenhuma.
      */
-    public String getEstado() {
-        return this.estado;
+    public String getstate() {
+        return this.state;
     }
 
     /**

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class File {
     /**
      * método que abre um arquivo vazio e retorna a instancia do arquivo.
-     * Pré-condição: nenhuma. Pós-condição: Retorna a instancia do arquivo aberto.
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Retorna a instancia do arquivo aberto.
      */
     public BufferedWriter openFile(String filePath) throws Exception {
         FileWriter fileWriter = new FileWriter(filePath);
@@ -21,8 +22,10 @@ public class File {
 
     /**
      * método que o caminho de um arquivo, processa ele e retorna um arrayList de
-     * pcb. Pré-condição: Ser um caminho de arquivo para uma entrada valida do
-     * algoritmo Sjf. Pós-condição: Retorna um arrayList de pcb, e fecha o arquivo.
+     * pcb. 
+     * Pré-condição: Ser um caminho de arquivo para uma entrada valida do
+     * algoritmo Sjf. 
+     * Pós-condição: Retorna um arrayList de pcb, e fecha o arquivo.
      */
     public ArrayList<Pcb> loadSjfFile(String filePath) throws Exception {
         FileReader fileReader = new FileReader(filePath);
@@ -46,9 +49,10 @@ public class File {
 
     /**
      * método que o caminho de um arquivo, processa ele e retorna um arrayList de
-     * pcb. Pré-condição: Ser um caminho de arquivo para uma entrada valida do
-     * algoritmo RoundRobin. Pós-condição: Retorna um arrayList de pcb, e fecha o
-     * arquivo.
+     * pcb. 
+     * Pré-condição: Ser um caminho de arquivo para uma entrada valida do
+     * algoritmo RoundRobin. 
+     * Pós-condição: Retorna um arrayList de pcb, e fecha o arquivo.
      */
     public ArrayList<Pcb> loadRRFile(String filePath) throws Exception {
         ArrayList<Pcb> pcbList = new ArrayList<Pcb>();

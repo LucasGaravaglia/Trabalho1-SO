@@ -10,7 +10,9 @@ public class RoundRobin {
   private String Line;
 
   /**
-   * Construtor da classe Pcb Pré-condição: nenhuma. Pós-condição: Nenhuma.
+   * Construtor da classe Pcb 
+   * Pré-condição: nenhuma. 
+   * Pós-condição: Nenhuma.
    */
   public RoundRobin() {
     this.Line = "";
@@ -24,8 +26,9 @@ public class RoundRobin {
 
   /**
    * Método que avança a lista de pcb e elimina pcb que terminaram de
-   * processar.Pré-condição: Pcb e arrayList de pcb validos. Pós-condição: Avança
-   * na lista ou remove o pcb da lista.
+   * processar.
+   * Pré-condição: Pcb e arrayList de pcb validos. 
+   * Pós-condição: Avança na lista ou remove o pcb da lista.
    */
   private ArrayList<Pcb> next(Pcb pcb, ArrayList<Pcb> array) {
     array.remove(0);
@@ -38,7 +41,8 @@ public class RoundRobin {
   }
 
   /**
-   * Método que simula o algoritmo do RoundRobin. Pré-condição: Arquivo valido.
+   * Método que simula o algoritmo do RoundRobin. 
+   * Pré-condição: Arquivo valido.
    * Pós-condição: Nenhuma.
    */
   public void run(String filePath) throws Exception {

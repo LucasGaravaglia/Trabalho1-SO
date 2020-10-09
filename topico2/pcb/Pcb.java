@@ -9,7 +9,9 @@ public class Pcb {
     private String state;
 
     /**
-     * Construtor da classe Pcb Pré-condição: nenhuma. Pós-condição: Nenhuma.
+     * Construtor da classe Pcb 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public Pcb() {
         this.Id = 0;
@@ -19,8 +21,9 @@ public class Pcb {
     }
 
     /**
-     * Construtor da classe sobrecarregado. Pré-condição: nenhuma. Pós-condição:
-     * Nenhuma.
+     * Construtor da classe sobrecarregado. 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public Pcb(Integer Id, Integer EstimatedTime, Integer quantum, String state) {
         this.Id = Id;
@@ -30,15 +33,17 @@ public class Pcb {
     }
 
     /**
-     * Setter da propriedade Id da classe Pré-condição: nenhuma. Pós-condição:
-     * Nenhuma.
+     * Setter da propriedade Id da classe 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public void setId(Integer Id) {
         this.Id = Id;
     }
 
     /**
-     * Setter da propriedade EstimatedTime da classe Pré-condição: nenhuma.
+     * Setter da propriedade EstimatedTime da classe. 
+     * Pré-condição: nenhuma.
      * Pós-condição: Nenhuma.
      */
     public void setEstimatedTime(Integer EstimatedTime) {
@@ -46,16 +51,18 @@ public class Pcb {
     }
 
     /**
-     * Setter da propriedade quantum da classe Pré-condição: nenhuma. Pós-condição:
-     * Nenhuma.
+     * Setter da propriedade quantum da classe. 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public void setQuantum(Integer quantum) {
         this.quantum = quantum;
     }
 
     /**
-     * Getter da propriedade Id da classe Pré-condição: nenhuma. Pós-condição:
-     * Nenhuma.
+     * Getter da propriedade Id da classe. 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public Integer getId() {
         return this.Id;
@@ -70,31 +77,36 @@ public class Pcb {
     }
 
     /**
-     * Getter da propriedade Quantum da classe Pré-condição: nenhuma. Pós-condição:
-     * Nenhuma.
+     * Getter da propriedade Quantum da classe 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public Integer getQuantum() {
         return this.quantum;
     }
 
     /**
-     * Setter da propriedade state da classe Pré-condição: nenhuma. Pós-condição:
-     * Nenhuma.
+     * Setter da propriedade state da classe 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public void setstate(String state) {
         this.state = state;
     }
 
     /**
-     * Getter da propriedade state da classe Pré-condição: nenhuma. Pós-condição:
-     * Nenhuma.
+     * Getter da propriedade state da classe 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public String getstate() {
         return this.state;
     }
 
     /**
-     * método toString da classe Pré-condição: nenhuma. Pós-condição: Nenhuma.
+     * método toString da classe 
+     * Pré-condição: nenhuma. 
+     * Pós-condição: Nenhuma.
      */
     public String toString() {
         return this.Id.toString();

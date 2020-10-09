@@ -7,7 +7,8 @@ import sjf.Sjf;
 
 public class Main {
   /**
-   * Método principal, que roda todo o programa. Pré-condição: nenhuma.
+   * Método principal, que roda todo o programa. 
+   * Pré-condição: nenhuma.
    * Pós-condição: Nenhuma.
    */
   public static void main(String[] args) {

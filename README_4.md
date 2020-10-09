@@ -11,4 +11,4 @@
 ## DESCRIÇÃO DO MONITOR ##
 
     Em quanto uma thread roda, a outra espera.
-    Quando a thread que está rodando notifica que terminou a outra é liberada.
+    Quando a thread que está rodando notifica que terminou a outra é liberada para rodar.

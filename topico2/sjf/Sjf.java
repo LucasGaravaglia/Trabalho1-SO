@@ -15,15 +15,18 @@ public class Sjf {
   }
 
   /**
-   * Construtor da classe Pcb Pré-condição: nenhuma. Pós-condição: Nenhuma.
+   * Construtor da classe Pcb 
+   * Pré-condição: nenhuma. 
+   * Pós-condição: Nenhuma.
    */
   public Sjf() {
     this.Line = "";
   }
 
   /**
-   * Método que ordena o arrayList de pcb Pré-condição: nenhuma. Pós-condição:
-   * Retorna um arrayList ordenado.
+   * Método que ordena o arrayList de pcb. 
+   * Pré-condição: nenhuma. 
+   * Pós-condição: Retorna um arrayList ordenado.
    */
   public ArrayList<Pcb> sort(ArrayList<Pcb> other) {
     ArrayList<Pcb> sortArray = new ArrayList<Pcb>();
@@ -44,7 +47,8 @@ public class Sjf {
   }
 
   /**
-   * Método que simula o algoritmo Sjf. Pré-condição: Arquivo valido.
+   * Método que simula o algoritmo Sjf. 
+   * Pré-condição: Arquivo valido.
    * Pós-condição: Nenhuma.
    */
   public void run(String filePath) throws Exception {

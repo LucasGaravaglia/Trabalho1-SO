@@ -7,6 +7,8 @@ class MyThread extends Thread {
 
 	// Executa a thread, caso tenha outra thread rodando ele aguarda a outra
 	// terminar
+	//Pré-condição : nenhuma
+	//Pós-condição : nenhuma
 	public void run() {
 		String thrdName = Thread.currentThread().getName();
 		System.out.println(thrdName + " starting.");

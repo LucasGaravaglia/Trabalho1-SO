@@ -1,30 +1,39 @@
-
 public class Main {
-	public static void main(String args[]) throws Exception {
-		MyThread thrd1 = new MyThread();
-		MyThread thrd2 = new MyThread();
 
-		thrd1.setName("MyThread #1");
-		thrd2.setName("MyThread #2");
-		showThreadStatus(thrd1);
+	// Método que faz as chamadas de thread e mostra o estados delas, para
+	// demonstrar o funcionamento do monitor
+	public static void main(String args[]) throws Exception {
+		MyThread thrd = new MyThread();
+		MyThread thrd2 = new MyThread();
+		thrd.setName("#1 ");
+		thrd2.setName("#2 ");
+		showThreadStatus(thrd);
 		showThreadStatus(thrd2);
-		thrd1.start();
+		thrd.start();
 		thrd2.start();
 
-		Thread.sleep(1);
-		showThreadStatus(thrd1);
+		thrd.waiting = false;
+		Thread.sleep(3);
+		showThreadStatus(thrd);
 		showThreadStatus(thrd2);
-		thrd1.waiting = false;
+
 		thrd2.waiting = false;
-
-		Thread.sleep(1);
-		showThreadStatus(thrd1);
+		Thread.sleep(3);
+		showThreadStatus(thrd);
 		showThreadStatus(thrd2);
-		thrd1.notice();
-		thrd2.notice();
 
-		Thread.sleep(1);
-		showThreadStatus(thrd1);
+		thrd.notice();
+		Thread.sleep(3);
+		showThreadStatus(thrd);
+		showThreadStatus(thrd2);
+
+		thrd2.notice();
+		Thread.sleep(5);
+		showThreadStatus(thrd);
+		showThreadStatus(thrd2);
+
+		Thread.sleep(5);
+		showThreadStatus(thrd);
 		showThreadStatus(thrd2);
 
 	}

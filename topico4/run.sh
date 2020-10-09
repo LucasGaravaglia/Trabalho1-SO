@@ -1,0 +1,1 @@
+clear && javac Main.java MyThread.java && java Main
